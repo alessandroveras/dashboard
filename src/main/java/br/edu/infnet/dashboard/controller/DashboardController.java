@@ -8,11 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.dashboard.model.domain.Usuario;
-import br.edu.infnet.dashboard.model.service.BebidaService;
-import br.edu.infnet.dashboard.model.service.ComidaService;
+import br.edu.infnet.dashboard.model.service.MusculacaoService;
+import br.edu.infnet.dashboard.model.service.AerobicoService;
 import br.edu.infnet.dashboard.model.service.LogService;
-import br.edu.infnet.dashboard.model.service.PedidoService;
-import br.edu.infnet.dashboard.model.service.SobremesaService;
+import br.edu.infnet.dashboard.model.service.AulaService;
+import br.edu.infnet.dashboard.model.service.AlongamentoService;
 import br.edu.infnet.dashboard.model.service.UsuarioService;
 
 @Controller
@@ -22,16 +22,16 @@ public class DashboardController {
 	private UsuarioService usuarioService;
 
 	@Autowired
-	private PedidoService pedidoService;
+	private AulaService aulaService;
 	
 	@Autowired
-	private BebidaService bebidaService;
+	private MusculacaoService musculacaoService;
 
 	@Autowired
-	private ComidaService comidaService;
+	private AerobicoService aerobicoService;
 
 	@Autowired
-	private SobremesaService sobremesaService;
+	private AlongamentoService alongamentoService;
 
 	@Autowired
 	private LogService logService;
@@ -45,12 +45,12 @@ public class DashboardController {
 		model.addAttribute("produtosPorUsuario", usuarios);
 		
 		//quantidade de pedidos
-		model.addAttribute("qtdePedidos", pedidoService.obterQuantidade());
+		model.addAttribute("qtdePedidos", aulaService.obterQuantidade());
 		
 		//valor de vendos dos produtos
-		model.addAttribute("valorVendaBebida", bebidaService.calcularValorVenda());
-		model.addAttribute("valorVendaComida", comidaService.calcularValorVenda());
-		model.addAttribute("valorVendaSobremsa", sobremesaService.calcularValorVenda());
+		model.addAttribute("valorVendaBebida", musculacaoService.calcularValorVenda());
+		model.addAttribute("valorVendaComida", aerobicoService.calcularValorVenda());
+		model.addAttribute("valorVendaSobremsa", alongamentoService.calcularValorVenda());
 
 		//recuperar o log
 		model.addAttribute("listaLog", logService.obterLista());

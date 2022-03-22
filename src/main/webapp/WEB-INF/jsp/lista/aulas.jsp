@@ -79,7 +79,7 @@
                                             <td>${p.data}</td>
                                             <td>${p.descricao}</td>
                                             <td>${p.solicitante.nome}</td>
-                                            <td>${p.produtos.size()}</td>
+                                            <td>${p.atividades.size()}</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>

@@ -1,6 +1,6 @@
 package br.edu.infnet.dashboard.model.domain;
 
-public class Solicitante {
+public class Professor {
 
 	private Integer id;	
 	private String nome;
@@ -11,29 +11,14 @@ public class Solicitante {
 
 	private Usuario usuario;
 	
-	public Solicitante() {
-		//
+	public Professor() {
+
 	}
 	
-	public Solicitante(String nome, String email, String cpf) {
+	public Professor(String nome, String email, String cpf) {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
-	}
-	
-	@Override
-	public String toString() {
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(id);
-		sb.append(";");
-		sb.append(nome);
-		sb.append(";");
-		sb.append(email);
-		sb.append(";");
-		sb.append(cpf);
-
-		return sb.toString();
 	}
 
 	public Integer getId() {
@@ -63,14 +48,9 @@ public class Solicitante {
 	public String getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public Endereco getEndereco() {
@@ -80,4 +60,28 @@ public class Solicitante {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(id);
+		sb.append(";");
+		sb.append(nome);
+		sb.append(";");
+		sb.append(email);
+		sb.append(";");
+		sb.append(cpf);
+
+		return sb.toString();
+	}
+
 }

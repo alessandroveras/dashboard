@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.infnet.dashboard.model.domain.Atividade;
+import br.edu.infnet.dashboard.model.domain.Aula;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -16,16 +18,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.dashboard.model.domain.Log;
-import br.edu.infnet.dashboard.model.domain.Pedido;
-import br.edu.infnet.dashboard.model.domain.Produto;
 import br.edu.infnet.dashboard.model.service.LogService;
-import br.edu.infnet.dashboard.model.service.PedidoService;
+import br.edu.infnet.dashboard.model.service.AulaService;
 
 @Controller
 public class RelatorioController {
 	
 	@Autowired
-	private PedidoService pedidoService;
+	private AulaService aulaService;
 	@Autowired
 	private LogService logService;
 
@@ -46,29 +46,28 @@ public class RelatorioController {
 			headerRow.createCell(i).setCellValue(columns[i]);
 		}
 		
-		List<Pedido> pedidos = pedidoService.obterLista();
+		List<Aula> aulas = aulaService.obterLista();
 		
 		int rowNum = 0;
 		
-		for(Pedido pedido : pedidos) {
+		for(Aula aula : aulas) {
 			
-			for(Produto produto : pedido.getProdutos()) {
+			for(Atividade atividade : aula.getAtividades()) {
 				Row row = abaProdutos.createRow(++rowNum);
 				
 				row.createCell(0).setCellValue(
-						pedido.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
+						aula.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
 					);
-				row.createCell(1).setCellValue(pedido.getDescricao());
-				row.createCell(2).setCellValue(pedido.isWeb() ? "web" : "loja");
-				row.createCell(3).setCellValue(pedido.getSolicitante().getNome());
-				row.createCell(4).setCellValue(pedido.getSolicitante().getEmail());
-				row.createCell(5).setCellValue(pedido.getSolicitante().getCpf());
+				row.createCell(2).setCellValue(aula.getDuracao());
+				row.createCell(3).setCellValue(aula.getProfessor().getNome());
+				row.createCell(4).setCellValue(aula.getProfessor().getEmail());
+				row.createCell(5).setCellValue(aula.getProfessor().getCpf());
 				row.createCell(6).setCellValue(
-						pedido.getSolicitante().getEndereco() != null ? 
-								pedido.getSolicitante().getEndereco().getUf() : ""
+						aula.getProfessor().getEndereco() != null ?
+								aula.getProfessor().getEndereco().getUf() : ""
 							);
-				row.createCell(7).setCellValue(produto.getDescricao());
-				row.createCell(8).setCellValue(produto.getValor());
+				row.createCell(7).setCellValue(atividade.getDescricao());
+				row.createCell(8).setCellValue(atividade.getDuracaoMinutos());
 			}
 		}
 		

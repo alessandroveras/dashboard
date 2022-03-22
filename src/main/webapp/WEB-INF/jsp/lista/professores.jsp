@@ -72,11 +72,11 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    	<c:forEach var="s" items="${listagem}">
+                                    	<c:forEach var="professor" items="${listagem}">
                                         <tr>
-                                            <td>${s.nome}</td>
-                                            <td>${s.email}</td>
-                                            <td>${s.cpf}</td>
+                                            <td>${professor.nome}</td>
+                                            <td>${professor.email}</td>
+                                            <td>${professor.cpf}</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
@@ -120,7 +120,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Ã—</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

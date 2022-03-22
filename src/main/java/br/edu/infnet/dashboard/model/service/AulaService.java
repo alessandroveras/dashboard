@@ -2,19 +2,19 @@ package br.edu.infnet.dashboard.model.service;
 
 import java.util.List;
 
+import br.edu.infnet.dashboard.model.domain.Aula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.dashboard.clients.IPedidoClient;
-import br.edu.infnet.dashboard.model.domain.Pedido;
+import br.edu.infnet.dashboard.clients.IAulaClient;
 
 @Service
-public class PedidoService {
+public class AulaService {
 	
 	@Autowired
-	private IPedidoClient pedidoClient;
+	private IAulaClient pedidoClient;
 	
-	public List<Pedido> obterLista() {
+	public List<Aula> obterLista() {
 		return pedidoClient.obterLista();
 	}
 	

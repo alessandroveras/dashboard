@@ -2,16 +2,15 @@ package br.edu.infnet.dashboard.clients;
 
 import java.util.List;
 
+import br.edu.infnet.dashboard.model.domain.Aula;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import br.edu.infnet.dashboard.model.domain.Pedido;
-
-@FeignClient(url = "localhost:8082/api/pedido", name = "pedidoClient")
-public interface IPedidoClient {
+@FeignClient(url = "localhost:8082/api/aula", name = "aulaClient")
+public interface IAulaClient {
 
 	@GetMapping(value = "/listar")
-	public List<Pedido> obterLista();
+	public List<Aula> obterLista();
 
 	@GetMapping(value = "/qtde")
 	public long obterQuantidade();

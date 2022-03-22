@@ -152,7 +152,7 @@
                                 <div class="card-body">
                                 	<c:forEach var="pedidoUser" items="${pedidosPorUsuario}">
                                     <h4 class="small font-weight-bold">${pedidoUser.nome} <span
-                                            class="float-right">${pedidoUser.pedidos.size()}</span></h4>
+                                            class="float-right">${pedidoUser.aulas.size()}</span></h4>
 <!--                                     <div class="progress mb-4"> -->
 <!--                                         <div class="progress-bar bg-info" role="progressbar" style="width: 80%" -->
 <!--                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> -->
@@ -172,7 +172,7 @@
                                 <div class="card-body">
                                 	<c:forEach var="produtoUser" items="${produtosPorUsuario}">
                                     <h4 class="small font-weight-bold">${produtoUser.nome} <span
-                                            class="float-right">${produtoUser.produtos.size()}</span></h4>
+                                            class="float-right">${produtoUser.atividades.size()}</span></h4>
 <!--                                     <div class="progress"> -->
 <!--                                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" -->
 <!--                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> -->
