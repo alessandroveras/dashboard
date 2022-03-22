@@ -33,13 +33,14 @@ public class RelatorioController {
 
         Workbook workbook = new XSSFWorkbook();
 
-        Sheet abaProdutos = workbook.createSheet("Atividades");
+        Sheet abaAtividades = workbook.createSheet("Atividades");
 
-        String[] columns = {"Data", "Descrição", "Tipo",
-                "Nome do solicitante", "E-mail do solicitante", "CPF do solicitante", "UF solicitante",
-                "Descrição do produto", "Valor do produto"};
+        String[] columns = {"Data", "Duracao",
+                "NomeProfessor", "EmailProfessor", "CPFProfessor", "UFProfessor",
+                "DescricaoAtividade", "IntensidadeAtividade"
+        };
 
-        Row headerRow = abaProdutos.createRow(0);
+        Row headerRow = abaAtividades.createRow(0);
 
         for (int i = 0; i < columns.length; i++) {
             headerRow.createCell(i).setCellValue(columns[i]);
@@ -52,27 +53,27 @@ public class RelatorioController {
         for (Aula aula : aulas) {
 
             for (Atividade atividade : aula.getAtividades()) {
-                Row row = abaProdutos.createRow(++rowNum);
+                Row row = abaAtividades.createRow(++rowNum);
 
                 row.createCell(0).setCellValue(
                         aula.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
                 );
-                row.createCell(2).setCellValue(aula.getDuracao());
-                row.createCell(3).setCellValue(aula.getProfessor().getNome());
-                row.createCell(4).setCellValue(aula.getProfessor().getEmail());
-                row.createCell(5).setCellValue(aula.getProfessor().getCpf());
-                row.createCell(6).setCellValue(
+                row.createCell(1).setCellValue(aula.getDuracao());
+                row.createCell(2).setCellValue(aula.getProfessor().getNome());
+                row.createCell(3).setCellValue(aula.getProfessor().getEmail());
+                row.createCell(4).setCellValue(aula.getProfessor().getCpf());
+                row.createCell(5).setCellValue(
                         aula.getProfessor().getEndereco() != null ?
                                 aula.getProfessor().getEndereco().getUf() : ""
                 );
-                row.createCell(7).setCellValue(atividade.getDescricao());
-                row.createCell(8).setCellValue(atividade.getDuracaoMinutos());
+                row.createCell(6).setCellValue(atividade.getDescricao());
+                row.createCell(7).setCellValue(atividade.getIntensidade());
             }
         }
 
         LocalDateTime hoje = LocalDateTime.now();
 
-        String arquivo = "produtos" + hoje.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + ".xlsx";
+        String arquivo = "atividades" + hoje.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + ".xlsx";
 
         String mensagem = null;
         try {
