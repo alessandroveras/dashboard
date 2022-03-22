@@ -2,86 +2,86 @@ package br.edu.infnet.dashboard.model.domain;
 
 public class Professor {
 
-	private Integer id;	
-	private String nome;
-	private String email;
-	private String cpf;
+    private Integer id;
+    private String nome;
+    private String email;
+    private String cpf;
 
-	private Endereco endereco;	
+    private Endereco endereco;
 
-	private Usuario usuario;
-	
-	public Professor() {
+    private Usuario usuario;
 
-	}
-	
-	public Professor(String nome, String email, String cpf) {
-		this.nome = nome;
-		this.email = email;
-		this.cpf = cpf;
-	}
+    public Professor() {
 
-	public Integer getId() {
-		return id;
-	}
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Professor(String nome, String email, String cpf) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-		sb.append(id);
-		sb.append(";");
-		sb.append(nome);
-		sb.append(";");
-		sb.append(email);
-		sb.append(";");
-		sb.append(cpf);
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(id);
+        sb.append(";");
+        sb.append(nome);
+        sb.append(";");
+        sb.append(email);
+        sb.append(";");
+        sb.append(cpf);
+
+        return sb.toString();
+    }
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +53,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Pedidos</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Aulas</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,26 +61,26 @@
                                     <thead>
                                         <tr>
                                             <th>Data</th>
-                                            <th>Descrição</th>
-                                            <th>Solicitante</th>
-                                            <th>Produtos</th>
+                                            <th>Duracao</th>
+                                            <th>Professor</th>
+                                            <th>Atividades</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Data</th>
-                                            <th>Descrição</th>
-                                            <th>Solicitante</th>
-                                            <th>Produtos</th>
+                                            <th>Duracao</th>
+                                            <th>Professor</th>
+                                            <th>Atividades</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    	<c:forEach var="p" items="${listagem}">
+                                    	<c:forEach var="aula" items="${listagem}">
                                         <tr>
-                                            <td>${p.data}</td>
-                                            <td>${p.descricao}</td>
-                                            <td>${p.solicitante.nome}</td>
-                                            <td>${p.atividades.size()}</td>
+                                            <td>${aula.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</td>
+                                            <td>${aula.duracao}</td>
+                                            <td>${aula.professor.nome}</td>
+                                            <td>${aula.atividades.size()}</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
@@ -98,7 +99,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Veras DevNET 2022</span>
                     </div>
                 </div>
             </footer>

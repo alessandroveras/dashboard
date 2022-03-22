@@ -52,7 +52,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Produtos</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Atividades</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,23 +60,26 @@
                                     <thead>
                                         <tr>
                                             <th>Descrição</th>
-                                            <th>Valor</th>
-                                            <th>Peso</th>
+                                            <th>DuracaoMinutos</th>
+                                            <th>Intensidade</th>
+                                            <th>Supervisionada</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Descrição</th>
-                                            <th>Valor</th>
-                                            <th>Peso</th>
+                                            <th>DuracaoMinutos</th>
+                                            <th>Intensidade</th>
+                                            <th>Supervisionada</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    	<c:forEach var="p" items="${listagem}">
+                                    	<c:forEach var="atividade" items="${listagem}">
                                         <tr>
-                                            <td>${p.descricao}</td>
-                                            <td>${p.valor}</td>
-                                            <td>${p.peso}</td>
+                                            <td>${atividade.descricao}</td>
+                                            <td>${atividade.duracaoMinutos}</td>
+                                            <td>${atividade.intensidade}</td>
+                                            <td>${atividade.supervisionada}</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
@@ -95,7 +98,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Veras DevNET 2022</span>
                     </div>
                 </div>
             </footer>

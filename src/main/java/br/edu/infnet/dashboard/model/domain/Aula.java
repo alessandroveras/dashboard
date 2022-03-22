@@ -6,91 +6,91 @@ import java.util.List;
 
 public class Aula {
 
-	private Integer id;
-	private LocalDateTime data;
-	private Integer duracao;
+    private Integer id;
+    private LocalDateTime data;
+    private Integer duracao;
 
-	private Professor professor;
+    private Professor professor;
 
-	private List<Atividade> atividades;
+    private List<Atividade> atividades;
 
-	private Usuario usuario;
+    private Usuario usuario;
 
-	public Aula() {
-		this.data = LocalDateTime.now();
-		this.duracao = 1;
-	}
-	
-	public Aula(Integer duracao, Professor professor, List<Atividade> atividades) {
-		this();
-		this.setDuracao(duracao);
-		this.setProfessor(professor);
-		this.setAtividades(atividades);
-	}
+    public Aula() {
+        this.data = LocalDateTime.now();
+        this.duracao = 1;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Aula(Integer duracao, Professor professor, List<Atividade> atividades) {
+        this();
+        this.setDuracao(duracao);
+        this.setProfessor(professor);
+        this.setAtividades(atividades);
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public LocalDateTime getData() {
-		return data;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
+    public LocalDateTime getData() {
+        return data;
+    }
 
-	public Integer getDuracao() {
-		return duracao;
-	}
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
 
-	public void setDuracao(Integer duracao) {
-		this.duracao = duracao;
-	}
+    public Integer getDuracao() {
+        return duracao;
+    }
 
-	public Professor getProfessor() {
-		return professor;
-	}
+    public void setDuracao(Integer duracao) {
+        this.duracao = duracao;
+    }
 
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
+    public Professor getProfessor() {
+        return professor;
+    }
 
-	public List<Atividade> getAtividades() {
-		return atividades;
-	}
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
 
-	public void setAtividades(List<Atividade> atividades) {
-		this.atividades = atividades;
-	}
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	@Override
-	public String toString() {
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-		String mensagem = String.format("%d;%s;%d;%s;%s;%d",
-				this.id,
-				this.data.format(formato),
-				this.duracao,
-				this.professor,
-				this.atividades.size()
-		);
+    @Override
+    public String toString() {
 
-		return mensagem;
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String mensagem = String.format("%d;%s;%d;%s;%s;%d",
+                this.id,
+                this.data.format(formato),
+                this.duracao,
+                this.professor,
+                this.atividades.size()
+        );
 
-	}
+        return mensagem;
+
+    }
 
 
 }

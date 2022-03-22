@@ -1,6 +1,5 @@
 package br.edu.infnet.dashboard.controller;
 
-import br.edu.infnet.dashboard.model.domain.Professor;
 import br.edu.infnet.dashboard.model.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,7 @@ public class ProfessorController {
     @GetMapping(value = "/professores")
     public String obterLista(Model model) {
 
-		model.addAttribute("listagem", professorService.obterLista());
+        model.addAttribute("listagem", professorService.obterLista());
 
         return "lista/professores";
     }
